@@ -1,0 +1,72 @@
+{% extends 'website/base.html' %}
+
+{% block title %}Earth in Finish - Bathroom & Kitchen Remodeling{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <h1>High-Quality Bathroom & Kitchen Remodels</h1>
+    <p class="subtitle">Turning your dream remodel into a reality.</p>
+    <a href="{% url 'contact' %}" class="cta-button">Get a Free Quote</a>
+</div>
+
+<div class="info-section">
+    <h2>Welcome to Earth in Finish!</h2>
+    <p>We specialize in turning your vision into a reality, from sleek, modern kitchens to luxurious, spa-like bathrooms.</p>
+</div>
+
+<div class="featured-work-section">
+    <h2>Our Featured Work</h2>
+    <div class="portfolio-grid">
+        {% for project in featured_projects %}
+        <a href="{% url 'project_detail' project.pk %}" class="project-card-link">
+            <div class="project-card">
+                <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                <div class="card-content">
+                    <h3>{{ project.title }}</h3>
+                    <p class="project-date">Completed: {{ project.date_completed|date:"F Y" }}</p>
+                </div>
+            </div>
+        </a>
+        {% empty %}
+        <p>Our portfolio is currently being updated. Please check back soon!</p>
+        {% endfor %}
+    </div>
+    <div class="view-all-container">
+        <a href="{% url 'portfolio' %}" class="cta-button">View Full Portfolio</a>
+    </div>
+</div>
+<div class="why-us-section">
+    <div class="section-container">
+        <h2>The Earth in Finish Difference</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Licensed & Insured</h3>
+                <p>Rest easy knowing your project is in safe hands. We are fully licensed and insured for your protection and peace of mind.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-hammer"></i>
+                <h3>Quality Craftsmanship</h3>
+                <p>We take pride in our attention to detail and commitment to high-quality work, ensuring a beautiful, lasting finish.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <h3>On-Time Completion</h3>
+                <p>Your time is valuable. We respect your schedule and are committed to completing projects on time and on budget.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="testimonials-section">
+    <div class="section-container">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-item">
+            <blockquote>
+                "Earth in Finish completely transformed our outdated bathroom into a spa-like retreat. Their attention to detail was incredible, and they finished the project right on schedule. We couldn't be happier!"
+            </blockquote>
+            <cite>&mdash; The Johnson Family, Douglass Hills</cite>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'website/base.html' %}
+
+{% block title %}{{ project.title }} - Earth in Finish{% endblock %}
+
+{% block content %}
+<div class="project-detail-container">
+    <h1 class="project-detail-title">{{ project.title }}</h1>
+    <p class="project-detail-date">Completed: {{ project.date_completed|date:"F Y" }}</p>
+    
+    <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-detail-image">
+    
+    <div class="project-detail-description">
+        {{ project.description|linebreaks }}
+    </div>
+
+    <a href="{% url 'portfolio' %}" class="back-link">&larr; Back to Portfolio</a>
+</div>
+{% endblock %}

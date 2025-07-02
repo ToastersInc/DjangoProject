@@ -1,0 +1,27 @@
+{% extends 'website/base.html' %}
+
+{% block title %}Our Work - Earth in Finish{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Our Work</h1>
+    <p>A showcase of our recent bathroom and kitchen remodeling projects.</p>
+</div>
+
+<div class="portfolio-grid">
+    {% for project in projects %}
+    <a href="{% url 'project_detail' project.pk %}" class="project-card-link">
+    <div class="project-card">
+        <img src="{{ project.image.url }}" alt="{{ project.title }}">
+        <div class="card-content">
+            <h3>{{ project.title }}</h3>
+            <p class="project-date">Completed: {{ project.date_completed|date:"F Y" }}</p>
+            <p>{{ project.description }}</p>
+        </div>
+    </div>
+</a>
+    {% empty %}
+    <p>We are currently updating our portfolio. Please check back soon!</p>
+    {% endfor %}
+</div>
+{% endblock %}

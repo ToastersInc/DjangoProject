@@ -1,0 +1,16 @@
+{% extends 'website/base.html' %}
+
+{% block title %}Message Sent! - Earth in Finish{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Thank You!</h1>
+</div>
+
+<div class="info-section">
+    <h2>Your message has been sent successfully.</h2>
+    <p>We appreciate you contacting us. One of our team members will get back to you shortly.</p>
+    <br>
+    <a href="{% url 'home' %}" class="cta-button">Return to Homepage</a>
+</div>
+{% endblock %}
