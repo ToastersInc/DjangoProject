@@ -272,6 +272,46 @@ footer {
     text-decoration: underline;
 }
 
+/* Styling for the new Image Gallery */
+.gallery-container {
+    margin-bottom: 30px;
+}
+
+.main-image-container {
+    display: flex;
+    justify-content: center; /* This centers the image horizontally */
+    margin-bottom: 15px;
+}
+
+.main-image-container img {
+    width: 100%;
+    height: auto;
+    max-height: 650px; /* Increased from 550px to make it bigger */
+    object-fit: contain; /* Use 'contain' to ensure the whole image is visible */
+    border-radius: 8px;
+}
+.thumbnail-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.thumbnail {
+    width: 100px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.thumbnail:hover {
+    border-color: #1abc9c;
+}
+
+
 /* Make the project cards on the portfolio page links */
 .project-card-link {
     text-decoration: none;

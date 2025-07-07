@@ -7,7 +7,17 @@
     <h1 class="project-detail-title">{{ project.title }}</h1>
     <p class="project-detail-date">Completed: {{ project.date_completed|date:"F Y" }}</p>
     
-    <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-detail-image">
+    <div class="gallery-container">
+        <div class="main-image-container">
+            <img src="{{ project.images.first.image.url }}" alt="{{ project.title }}" id="main-gallery-image">
+        </div>
+
+        <div class="thumbnail-strip">
+            {% for p_image in project.images.all %}
+            <img src="{{ p_image.image.url }}" alt="Thumbnail for {{ project.title }}" class="thumbnail" onclick="changeImage('{{ p_image.image.url }}')">
+            {% endfor %}
+        </div>
+    </div>
     
     <div class="project-detail-description">
         {{ project.description|linebreaks }}
@@ -15,4 +25,13 @@
 
     <a href="{% url 'portfolio' %}" class="back-link">&larr; Back to Portfolio</a>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function changeImage(imageUrl) {
+        const mainImage = document.getElementById('main-gallery-image');
+        mainImage.src = imageUrl;
+    }
+</script>
 {% endblock %}

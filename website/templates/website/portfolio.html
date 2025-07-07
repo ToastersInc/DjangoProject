@@ -12,7 +12,7 @@
     {% for project in projects %}
     <a href="{% url 'project_detail' project.pk %}" class="project-card-link">
     <div class="project-card">
-        <img src="{{ project.image.url }}" alt="{{ project.title }}">
+        <img src="{{ project.images.first.image.url }}" alt="{{ project.title }}">
         <div class="card-content">
             <h3>{{ project.title }}</h3>
             <p class="project-date">Completed: {{ project.date_completed|date:"F Y" }}</p>

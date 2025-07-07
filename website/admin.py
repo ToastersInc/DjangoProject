@@ -1,7 +1,14 @@
 from django.contrib import admin
 
-from .models import Project
+from .models import Project, ProjectImage
 
 # Register your models here.
+# add mutliple images on the project page
+class ProjectImageInLine(admin.TabularInline):
+    model = ProjectImage
+    extra = 1
 
-admin.site.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
+    inlines = [ProjectImageInLine]
+
+admin.site.register(Project, ProjectAdmin)
