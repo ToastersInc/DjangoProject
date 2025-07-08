@@ -3,4 +3,16 @@ venv
 __pycache__/
 staticfiles/
 website/__pycache__/
+*.local
+local_settings.py
+db.sqlite3
+db.sqlite-journal
+*.log
+logs/
+/media/
+/static/
+/staticfiles/
+
+*.py[cod]
+*.$py.class
 
